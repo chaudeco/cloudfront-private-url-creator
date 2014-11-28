@@ -2,7 +2,7 @@
 var util = require('util');
 var test = require('tape');
 var common = require('./common.js');
-var cf = require('..');
+var cf = require('../lib/v3');
 
 var privateKey;
 var keyPairId = "PK12345EXAMPLE";

@@ -13,13 +13,13 @@
 	"keywords": [
 		"cloudfront"
 	],
-	"version": "1.0.51",
+	"version": "1.0.52",
 	"bugs": {
 		"url": "https://github.com/maxnachlinger/cloudfront-private-url-creator/issues"
 	},
 	"license": "ISC",
 	"scripts": {
-		"test": "node tests/tests.js"
+		"test": "node tests/*Tests.js"
 	},
 	"main": "lib/",
 	"devDependencies": {

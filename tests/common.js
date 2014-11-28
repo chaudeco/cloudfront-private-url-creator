@@ -5,25 +5,27 @@ var querystring = require('querystring');
 
 var common = exports;
 
-var privateKeyPath = path.join(__dirname, 'private-key.pem');
+var privateKeyPath = path.join(__dirname, '/fixtures/private-key.pem');
 var privateKey;
 
-common.loadPrivateKey = function (loadPrivateKeyCb) {
+common.loadPrivateKey = function (cb) {
 	if (privateKey) {
-		return loadPrivateKeyCb(null, privateKey);
+		return setImmediate(function() {
+			cb(null, privateKey);
+		});
 	}
 
 	fs.realpath(privateKeyPath, function (err, resolvedPath) {
 		if (err) {
-			return loadPrivateKeyCb(err);
+			return cb(err);
 		}
 
 		fs.readFile(resolvedPath, function (err, data) {
 			if (err) {
-				return loadPrivateKeyCb(err);
+				return cb(err);
 			}
 			privateKey = data;
-			loadPrivateKeyCb(null, privateKey);
+			cb(null, privateKey);
 		});
 	});
 };

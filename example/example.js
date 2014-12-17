@@ -19,6 +19,10 @@ loadPrivateKey(function privateKeyCb(err, keyContents) {
 		privateKey: keyContents,
 		keyPairId: keyPairId,
 		dateLessThan: dateLessThan
+		//dateGreaterThan: new Date(...),
+		//ipAddress: 88.127.108.22/32,
+		//accessAllObjectsInDirectory: {true, false}
+
 	};
 	// sign the url and return it, or just get the signature
 	var signatureQueryString = cf.getSignatureQueryString(urlToSign, config);
